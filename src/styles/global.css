@@ -1,0 +1,20 @@
+/* src/styles/global.css */
+
+/* Import Tailwind CSS */
+@import "tailwindcss";
+
+/* --- Optional: Add your custom configuration here using @theme --- */
+@theme {
+  /* Example of setting a custom color and utility */
+  --color-primary: #1e3a8a; /* dark blue */
+  --font-heading: 'Georgia', serif;
+}
+
+/* Example: Use your custom theme values */
+.custom-title {
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+}
+
+/* --- Optional: Add Tailwind Plugins using @plugin --- */
+@plugin "@tailwindcss/typography";
