@@ -1,14 +1,84 @@
 ---
-import Layout from '../layouts/Layout.astro'; 
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const projects = [
+  {
+    name: "BirdieBoard",
+    description: "A SwiftUI golf score tracking app for the Tri-Valley Korean Golf Association.",
+    link: "https://apps.apple.com/app/birdieboard",
+  },
+  {
+    name: "RunReady",
+    description: "An iOS running planner powered by GPT-based adaptive training logic.",
+    link: "#",
+  },
+];
 ---
 
-<Layout title="My Astro + Tailwind V4 Site">
-    <main class="max-w-4xl mx-auto p-6">
-        <h1 class="text-5xl font-extrabold text-primary mb-4">
-            Astro + Tailwind V4
-        </h1>
-        <p class="text-lg text-gray-700">
-            This paragraph is styled using Tailwind utility classes!
-        </p>
-    </main>
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>BenByteCode | Software & Robotics Projects</title>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <Navbar />
+
+    <!-- Hero -->
+    <section class="flex flex-col items-center justify-center text-center h-screen">
+      <h1 class="text-6xl font-extrabold tracking-tight">
+        <span class="text-indigo-600">{</span>BenByteCode<span class="text-indigo-600">}</span>
+      </h1>
+      <p class="mt-4 text-lg text-gray-600 max-w-lg">
+        Crafting code. Building robots. Designing systems.
+      </p>
+      <a href="#projects"
+        class="mt-8 px-6 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-all">
+        View My Work
+      </a>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="max-w-5xl mx-auto px-6 py-20">
+      <h2 class="text-3xl font-bold mb-8 text-center">Projects</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        {projects.map(project => (
+          <div class="border border-gray-200 rounded-2xl p-6 bg-white shadow-sm hover:shadow-md transition">
+            <h3 class="text-xl font-semibold text-indigo-600 mb-2">{project.name}</h3>
+            <p class="text-gray-600 text-sm mb-4">{project.description}</p>
+            <a href={project.link} target="_blank" class="text-indigo-500 hover:underline text-sm">
+              Visit →
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="max-w-4xl mx-auto px-6 py-20 text-center">
+      <h2 class="text-3xl font-bold mb-4">About</h2>
+      <p class="text-gray-600 leading-relaxed">
+        Hi, I’m Benjamin Kim — a software architect passionate about
+        Swift, robotics, and AI. I build applications that blend
+        elegant design, reliable systems, and intelligent automation.
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="max-w-4xl mx-auto px-6 py-20 text-center">
+      <h2 class="text-3xl font-bold mb-4">Contact</h2>
+      <p class="text-gray-600 mb-6">
+        Let’s connect! You can find me on GitHub or reach out via email.
+      </p>
+      <div class="space-x-6">
+        <a href="https://github.com/benbytecode" target="_blank" class="text-indigo-600 hover:underline">GitHub</a>
+        <a href="mailto:hello@benbytecode.com" class="text-indigo-600 hover:underline">Email</a>
+        <a href="https://linkedin.com/in/benbytecode" target="_blank" class="text-indigo-600 hover:underline">LinkedIn</a>
+      </div>
+    </section>
+
+    <Footer />
+  </body>
+</html>
