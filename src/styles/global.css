@@ -1,7 +1,7 @@
 /* src/styles/global.css */
 
 /* Import Tailwind CSS */
-@import "tailwindcss";
+@import "tailwindcss" source("..");
 
 /* --- Optional: Add Tailwind Plugins using @plugin --- */
 @plugin "@tailwindcss/typography";
