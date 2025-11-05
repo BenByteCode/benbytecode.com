@@ -1,15 +1,22 @@
 ---
-// src/layouts/Layout.astro
-import '../styles/global.css'; // Import the CSS file here
-const { title } = Astro.props;
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Ben's Portfolio - Full Stack Developer" } = Astro.props;
 ---
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
-</head>
-<body>
+  </head>
+  <body class="bg-gray-900 text-gray-100 font-mono">
     <slot />
-</body>
+  </body>
 </html>

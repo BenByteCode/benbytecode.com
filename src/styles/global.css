@@ -1,15 +1,1 @@
-/* src/styles/global.css */
-
-/* Import Tailwind CSS */
 @import "tailwindcss";
-
-/* --- Optional: Add Tailwind Plugins using @plugin --- */
-@plugin "@tailwindcss/typography";
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Inter", system-ui, sans-serif;
-}
