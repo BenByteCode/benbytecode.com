@@ -8,7 +8,7 @@ export default defineConfig({
   vite: {
     site: 'https://benbytecode.com',
     base: '/',
-    output: 'dist',
+    outDir: 'dist',
     plugins: [tailwindcss()]
   }
 });
