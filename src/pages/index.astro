@@ -1,103 +1,111 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-
-const projects = [
-  {
-    name: "BirdieBoard",
-    description: "A SwiftUI golf score tracking app for the Tri-Valley Korean Golf Association.",
-    link: "https://apps.apple.com/app/birdieboard",
-  },
-  {
-    name: "RunReady",
-    description: "An iOS running planner powered by GPT-based adaptive training logic.",
-    link: "#",
-  },
-];
+// Removed Header and Footer imports
 ---
 
 <Layout title="BenByteCode - Full Stack Developer">
-  <div class="min-h-screen flex flex-col">
-    <Header />
+  <!-- Removed the outermost div, Header, and Footer components -->
     
-    <main class="flex-grow">
-      <!-- Hero Section -->
-      <section class="container mx-auto px-6 py-20">
-        <div class="text-center">
-          <h1 class="text-5xl md:text-7xl font-bold mb-6">
-            <span class="text-code-blue">Hello</span>
-            <span class="text-gray-100">, I'm</span>
-            <span class="text-code-green">Benjamin</span>
-          </h1>
-          
-          <div class="text-xl md:text-2xl text-gray-300 mb-8 font-mono">
-            <span class="text-code-purple">const</span>
-            <span class="text-gray-100"> developer = </span>
-            <span class="text-code-green">"Full Stack Engineer"</span>
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="container mx-auto px-6 py-20">
+      <div class="text-center">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+          <span class="text-code-blue">Hello</span>
+          <span class="text-gray-100">, we're</span>
+          <span class="text-code-green">BenByteCode</span>
+        </h1>
+        
+        <div class="text-xl md:text-2xl text-gray-300 mb-8 font-mono">
+          <span class="text-code-purple">const</span>
+          <span class="text-gray-100"> team = </span>
+          <span class="text-code-green">"Full Stack & App Engineers"</span>
+        </div>
+        
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-12">
+          We craft digital experiences with clean code and modern technologies. 
+          Our focus is on creating efficient, scalable, and user-friendly applications 
+          across web, iOS, and visionOS platforms.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/projects" class="bg-code-blue text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-code-green transition-colors">
+            View Our Work
+          </a>
+          <a href="/about" class="border border-code-blue text-code-blue px-8 py-3 rounded-lg font-semibold hover:bg-code-blue hover:text-gray-900 transition-colors">
+            Get In Touch
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="bg-gray-800 py-20">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          <span class="text-code-blue">&lt;</span>
+          <span class="text-gray-100">Skills</span>
+          <span class="text-code-blue"> /&gt;</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <h3 class="text-xl font-semibold text-code-green mb-4">Frontend</h3>
+            <div class="flex flex-wrap justify-center gap-2">
+              <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">React</span>
+              <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">TypeScript</span>
+              <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Tailwind CSS</span>
+              <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Astro</span>
+            </div>
           </div>
           
-          <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-12">
-            I craft digital experiences with clean code and modern technologies. 
-            Passionate about creating efficient, scalable, and user-friendly applications.
+          <div class="text-center">
+            <h3 class="text-xl font-semibold text-code-green mb-4">Backend</h3>
+            <div class="flex flex-wrap justify-center gap-2">
+              <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Node.js</span>
+              <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Python</span>
+              <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">PostgreSQL</span>
+              <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">MongoDB</span>
+            </div>
+          </div>
+          
+          <div class="text-center">
+            <h3 class="text-xl font-semibold text-code-green mb-4">Tools</h3>
+            <div class="flex flex-wrap justify-center gap-2">
+              <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Git</span>
+              <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Docker</span>
+              <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">AWS</span>
+              <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Vercel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Specialization Section -->
+    <section class="py-20">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          <span class="text-code-blue">&lt;</span>
+          <span class="text-gray-100">Specialization</span>
+          <span class="text-code-blue"> /&gt;</span>
+        </h2>
+        
+        <div class="max-w-4xl mx-auto p-8 rounded-xl bg-gray-800 shadow-xl border border-code-blue/50">
+          <h3 class="text-2xl font-semibold text-code-green mb-4 text-center">
+            Native App Development
+          </h3>
+          <p class="text-gray-400 text-lg text-center leading-relaxed">
+            In addition to full-stack web development, our team excels in native app engineering. 
+            We utilize **SwiftUI** for building high-performance applications across the Apple ecosystem, 
+            with a strong focus on **iOS** and the emerging **visionOS** platform for spatial computing experiences.
           </p>
-          
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/projects" class="bg-code-blue text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-code-green transition-colors">
-              View My Work
-            </a>
-            <a href="/contact" class="border border-code-blue text-code-blue px-8 py-3 rounded-lg font-semibold hover:bg-code-blue hover:text-gray-900 transition-colors">
-              Get In Touch
-            </a>
+          <div class="flex justify-center gap-4 mt-6">
+              <span class="px-4 py-2 bg-code-purple/20 text-code-purple rounded-full text-sm font-medium">iOS / SwiftUI</span>
+              <span class="px-4 py-2 bg-code-purple/20 text-code-purple rounded-full text-sm font-medium">visionOS / Spatial Computing</span>
           </div>
         </div>
-      </section>
-
-      <!-- Skills Section -->
-      <section class="bg-gray-800 py-20">
-        <div class="container mx-auto px-6">
-          <h2 class="text-3xl font-bold text-center mb-12">
-            <span class="text-code-blue">&lt;</span>
-            <span class="text-gray-100">Skills</span>
-            <span class="text-code-blue"> /&gt;</span>
-          </h2>
-          
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="text-center">
-              <h3 class="text-xl font-semibold text-code-green mb-4">Frontend</h3>
-              <div class="flex flex-wrap justify-center gap-2">
-                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">React</span>
-                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">TypeScript</span>
-                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Tailwind CSS</span>
-                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Astro</span>
-              </div>
-            </div>
-            
-            <div class="text-center">
-              <h3 class="text-xl font-semibold text-code-green mb-4">Backend</h3>
-              <div class="flex flex-wrap justify-center gap-2">
-                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Node.js</span>
-                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Python</span>
-                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">PostgreSQL</span>
-                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">MongoDB</span>
-              </div>
-            </div>
-            
-            <div class="text-center">
-              <h3 class="text-xl font-semibold text-code-green mb-4">Tools</h3>
-              <div class="flex flex-wrap justify-center gap-2">
-                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Git</span>
-                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Docker</span>
-                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">AWS</span>
-                <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Vercel</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    
-    <Footer />
-  </div>
+      </div>
+    </section>
+  </main>
 </Layout>
-

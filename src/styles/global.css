@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
-/* --- Optional: Add Tailwind Plugins using @plugin --- */
-/* @plugin "@tailwindcss/typography"; */
-
 @theme {
-  /* Define custom color variables */
+  /* Define custom color variables for the code theme */
   
-  /* The variable name structure is --color-<class-name>-<shade> */
-  /* For utility classes like 'text-code-blue', we use the base --color-code-blue */
-  
-  --color-code-blue: #61DAFB;    /* Example Blue (like React/Astro blue) */
-  --color-code-green: #A9DC76;   /* Example Green (for success/strings) */
-  --color-code-purple: #FC9867;  /* Example Purple (for const/keywords) */
+  --color-code-blue: #61DAFB;    /* Primary Action/Link Color (React/Astro Blue) */
+  --color-code-green: #A9DC76;   /* Secondary/Success Color (String/Highlight Green) */
+  --color-code-purple: #FC9867;  /* Keyword/Accent Color (Keyword Orange/Purple) */
   
   /* You can optionally add custom screens or other overrides here */
+}
+
+/* Base styles for the entire document */
+html {
+  /* Default font family */
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
 }

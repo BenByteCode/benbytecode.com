@@ -1,9 +1,8 @@
 ---
 const links = [
   { name: "Home", href: "/" },
-  { name: "Projects", href: "/projects" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "Projects", href: "/projects" }, 
+  { name: "About", href: "/about" }, // This link now leads to About/Contact information
 ];
 
 // Normalize the current path: gets path, removes trailing slash (unless it's just '/')
@@ -26,6 +25,7 @@ const isActive = (href: string) => {
         &lt;BenByteCode /&gt;
       </a>
 
+      <!-- Desktop Navigation -->
       <div class="hidden md:flex space-x-8 text-gray-300">
         {links.map(link => (
           <a 
@@ -44,6 +44,7 @@ const isActive = (href: string) => {
         ))}
       </div>
 
+      <!-- Mobile menu button (Hamburger Icon) -->
       <button class="md:hidden text-gray-300 hover:text-code-blue" id="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -52,6 +53,7 @@ const isActive = (href: string) => {
       </button>
     </div>
 
+    <!-- Mobile menu (Hidden by default, toggled by JS) -->
     <div class="md:hidden hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1">
         {links.map(link => (

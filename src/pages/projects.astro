@@ -1,48 +1,49 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+// Removed Header and Footer imports
 import ProjectCard from '../components/ProjectCard.astro';
+
+// 1. Import the JSON data. Astro handles this import automatically.
+import projectsData from '../data/projects.json';
+
+// Define the expected structure for TypeScript support
+interface Project {
+  title: string;
+  description: string;
+  technologies: string[];
+  githubUrl: string;
+  liveUrl: string;
+}
+
+// Type assertion for clarity
+const projects: Project[] = projectsData as Project[];
 ---
 
 <Layout title="Projects - BenByteCode">
-  <div class="min-h-screen flex flex-col">
-    <Header />
+  <!-- Removed the outermost div, Header, and Footer components -->
     
-    <main class="flex-grow container mx-auto px-6 py-20">
-      <h1 class="text-4xl font-bold text-center mb-12">
-        <span class="text-code-blue">&lt;</span>
-        <span class="text-gray-100">Projects</span>
-        <span class="text-code-blue"> /&gt;</span>
-      </h1>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <ProjectCard
-          title="E-Commerce Platform"
-          description="A full-stack e-commerce solution with React, Node.js, and Stripe integration."
-          technologies={["React", "Node.js", "MongoDB", "Stripe"]}
-          githubUrl="https://github.com/username/ecommerce"
-          liveUrl="https://ecommerce-demo.com"
-        />
-        
-        <ProjectCard
-          title="Task Management App"
-          description="A collaborative task management application with real-time updates."
-          technologies={["Vue.js", "Express", "Socket.io", "PostgreSQL"]}
-          githubUrl="https://github.com/username/taskapp"
-          liveUrl="https://taskapp-demo.com"
-        />
-        
-        <ProjectCard
-          title="Weather Dashboard"
-          description="A responsive weather dashboard with location-based forecasts."
-          technologies={["React", "TypeScript", "Tailwind CSS", "Weather API"]}
-          githubUrl="https://github.com/username/weather"
-          liveUrl="https://weather-dashboard-demo.com"
-        />
-      </div>
-    </main>
+  <main class="flex-grow container mx-auto px-6 py-20">
+    <h1 class="text-4xl font-bold text-center mb-12">
+      <span class="text-code-blue">&lt;</span>
+      <span class="text-gray-100">Projects</span>
+      <span class="text-code-blue"> /&gt;</span>
+    </h1>
     
-    <Footer />
-  </div>
+    <!-- 2. Map over the imported projects data to render ProjectCard components -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map(project => (
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          technologies={project.technologies}
+          githubUrl={project.githubUrl}
+          liveUrl={project.liveUrl}
+        />
+      ))}
+    </div>
+    
+    <p class="text-center text-gray-500 mt-12 italic">
+      I am currently developing several new projects. Check back soon for more updates!
+    </p>
+  </main>
 </Layout>

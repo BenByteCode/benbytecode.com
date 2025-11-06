@@ -1,23 +1,99 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+// Removed Header and Footer imports
+
+// 1. Import team data from the new JSON file
+import teamData from '../data/team.json';
+
+// Define the expected structure for TypeScript support
+interface TeamMember {
+  name: string;
+  role: string;
+  email: string;
+  phone: string;
+  color: string;
+}
+
+const team: TeamMember[] = teamData as TeamMember[];
 ---
 
-<Layout title="About - BenByteCode">
-  <div class="min-h-screen flex flex-col">
-    <Header />
+<Layout title="About Us - BenByteCode">
+  <!-- Removed the outermost div, Header, and Footer components -->
     
-    <main class="flex-grow container mx-auto px-6 py-20">
-      <!-- <h1 class="text-4xl font-bold text-center mb-12">
-        <span class="text-code-blue">&lt;</span>
-        <span class="text-gray-100">About</span>
-        <span class="text-code-blue"> /&gt;</span>
-      </h1> -->
+  <main class="flex-grow container mx-auto px-6 py-20">
+    <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">
+      <span class="text-code-blue">&lt;</span>
+      <span class="text-gray-100">About Us</span>
+      <span class="text-code-blue"> /&gt;</span>
+    </h1>
+    
+    <!-- Mission/Narrative Section -->
+    <section class="max-w-4xl mx-auto mb-20 p-8 rounded-xl bg-gray-800 shadow-xl border border-gray-700">
+      <h2 class="text-3xl font-semibold text-code-green mb-6 text-center">
+        Our Vision: Code Beyond the Screen
+      </h2>
+      <p class="text-lg text-gray-400 leading-relaxed mb-6">
+        BenByteCode is a two-person engineering team focused on delivering **clean, scalable, and high-performance applications**. We specialize in both robust full-stack web architectures (using technologies like **Astro, React, and Node.js**) and modern native development.
+      </p>
+      <p class="text-lg text-gray-400 leading-relaxed">
+        With deep expertise in **SwiftUI**, we are passionate about building seamless experiences across the Apple ecosystem, including cutting-edge development for **iOS** and the immersive new world of **visionOS** (Spatial Computing). We bridge the gap between complex functionality and beautiful, user-centric design.
+      </p>
       
-      about
-    </main>
-    
-    <Footer />
-  </div>
+      <div class="flex justify-center gap-4 mt-8">
+          <span class="px-4 py-2 bg-code-purple/20 text-code-purple rounded-full text-sm font-medium">Full Stack Web</span>
+          <span class="px-4 py-2 bg-code-purple/20 text-code-purple rounded-full text-sm font-medium">iOS & visionOS</span>
+      </div>
+    </section>
+
+    ---
+
+    <!-- Meet the Team & Contact Section -->
+    <section>
+      <h2 class="text-3xl font-bold text-center mb-12">
+        <span class="text-code-blue">&lt;</span>
+        <span class="text-gray-100">Meet the Team</span>
+        <span class="text-code-blue"> /&gt;</span>
+      </h2>
+      
+      <p class="text-lg text-gray-400 text-center max-w-3xl mx-auto mb-16">
+        Feel free to reach out directly to the appropriate team member for project inquiries or development questions.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        {team.map(member => (
+          <div class={`p-8 rounded-xl bg-gray-800 shadow-xl border border-${member.color}/50`}>
+            <h3 class={`text-3xl font-bold mb-2 text-${member.color}`}>
+              {member.name}
+            </h3>
+            <p class="text-lg font-semibold text-code-green mb-6">
+              {member.role}
+            </p>
+            
+            <div class="space-y-4 text-gray-400">
+              
+              {/* Email Link */}
+              <div class="flex items-center space-x-3">
+                <svg class="w-6 h-6 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                <a href={`mailto:${member.email}`} class={`hover:text-${member.color} transition-colors break-words`}>
+                  {member.email}
+                </a>
+              </div>
+              
+              {/* Phone Link */}
+              <div class="flex items-center space-x-3">
+                <svg class="w-6 h-6 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-3.28a2 2 0 01-2-2 16.03 16.03 0 00-7.464-7.464 2 2 0 01-2-2V5z"></path>
+                </svg>
+                <a href={`tel:${member.phone}`} class={`hover:text-${member.color} transition-colors`}>
+                  {member.phone}
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
 </Layout>

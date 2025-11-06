@@ -1,0 +1,16 @@
+[
+  {
+    "title": "BirdieBoard",
+    "description": "A SwiftUI golf score tracking app for the Tri-Valley Korean Golf Association. Features real-time scoring and persistent data storage.",
+    "technologies": ["SwiftUI", "Firebase", "iOS/iPadOS"],
+    "githubUrl": "https://github.com/benbytecode/birdieboard",
+    "liveUrl": "https://apps.apple.com/app/birdieboard"
+  },
+  {
+    "title": "RunReady",
+    "description": "An iOS running planner powered by GPT-based adaptive training logic, optimizing schedules based on real-time performance data.",
+    "technologies": ["Swift", "GPT API", "Core Data", "Adaptive Algorithms"],
+    "githubUrl": "https://github.com/benbytecode/runready",
+    "liveUrl": "#"
+  }
+]

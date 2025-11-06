@@ -1,16 +1,47 @@
 ---
+// Define the properties this layout accepts
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "A two-person engineering team specializing in full-stack web, iOS, and visionOS development." } = Astro.props;
+
+// Import the necessary components
+import Header from "../components/Header.astro"; // NEW: Imported Header
+import Footer from "../components/Footer.astro"; // NEW: Imported Footer
 import '../styles/global.css';
-const { title } = Astro.props;
+
+// Set the global font to Inter (a great modern choice)
+const FONT_URL = "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap";
 ---
-<!DOCTYPE html>
-<html lang="en">
+
+<!doctype html>
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Title and Metadata -->
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Load Inter Font -->
+    <link rel="stylesheet" href={FONT_URL} />
+    
+    <!-- Astro Generator Tag (optional but useful) -->
+    <meta name="generator" content={Astro.generator} />
   </head>
-  <body class="bg-gray-900 text-gray-100 font-mono">
-    <slot />
+  
+  <!-- Global Body Styles -->
+  <body class="bg-gray-900 text-gray-100 font-sans min-h-screen transition-colors duration-500">
+    <!-- Main wrapper for sticky footer logic -->
+    <div class="min-h-screen flex flex-col">
+      <Header />
+      <!-- The <slot /> now receives only the content, typically just <main class="flex-grow">...</main> -->
+      <slot />
+      <Footer />
+    </div>
   </body>
 </html>
