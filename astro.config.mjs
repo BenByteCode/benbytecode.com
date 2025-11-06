@@ -3,5 +3,9 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   integrations: [tailwind()],
-  site: 'https://benbytecode.com'
+  
+  site: 'https://benbytecode.com',
+  
+  base: '/',
+  outDir: './dist',
 });
