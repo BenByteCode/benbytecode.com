@@ -22,8 +22,9 @@ frontend:
   customRedirects:
     - source: "https://benbytecode.com"
       target: "https://www.benbytecode.com"
-      status: "301" # Permanent redirect for SEO
-    - source: "</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json|webp|xml)$)([^.]+$)/>"
+      status: "301" 
+    # **Simplest SPA rewrite**
+    - source: "/<*>"
       target: "/index.html"
-      status: "200" # SPA rewrite/fallback for client-side routing
+      status: "200"
 
