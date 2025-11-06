@@ -1,5 +1,6 @@
 version: 1
 frontend:
+  # 1. Build Phases
   phases:
     preBuild:
       commands:
@@ -7,6 +8,8 @@ frontend:
     build:
       commands:
         - npm run build
+  
+  # 2. Artifacts (Output)
   artifacts:
     baseDirectory: dist
     files:
@@ -14,4 +17,13 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+      
+  # 3. Custom Redirects (The fix for /projects and /about)
+  customRedirects:
+    - source: "https://benbytecode.com"
+      target: "https://www.benbytecode.com"
+      status: "301" # Permanent redirect for SEO
+    - source: "</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json|webp|xml)$)([^.]+$)/>"
+      target: "/index.html"
+      status: "200" # SPA rewrite/fallback for client-side routing
 
