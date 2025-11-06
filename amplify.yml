@@ -17,14 +17,4 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
-      
-  # 3. Custom Redirects (The fix for /projects and /about)
-  customRedirects:
-    - source: "https://benbytecode.com"
-      target: "https://www.benbytecode.com"
-      status: "301" 
-    # **Simplest SPA rewrite**
-    - source: "/<*>"
-      target: "/index.html"
-      status: "200"
 
