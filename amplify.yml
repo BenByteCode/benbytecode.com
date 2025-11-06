@@ -14,3 +14,10 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+  customRedirects:
+    - source: "https://benbytecode.com"
+      target: "https://www.benbytecode.com"
+      status: "301" 
+    - source: "/<*>"
+      target: "/index.html"
+      status: "200"
