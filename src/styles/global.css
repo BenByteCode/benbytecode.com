@@ -1,17 +1,17 @@
-/* src/styles/global.css */
-
-/* Import Tailwind CSS */
 @import "tailwindcss";
 
-@source ".";
-
 /* --- Optional: Add Tailwind Plugins using @plugin --- */
-@plugin "@tailwindcss/typography";
+/* @plugin "@tailwindcss/typography"; */
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Inter", system-ui, sans-serif;
+@theme {
+  /* Define custom color variables */
+  
+  /* The variable name structure is --color-<class-name>-<shade> */
+  /* For utility classes like 'text-code-blue', we use the base --color-code-blue */
+  
+  --color-code-blue: #61DAFB;    /* Example Blue (like React/Astro blue) */
+  --color-code-green: #A9DC76;   /* Example Green (for success/strings) */
+  --color-code-purple: #FC9867;  /* Example Purple (for const/keywords) */
+  
+  /* You can optionally add custom screens or other overrides here */
 }

@@ -1,0 +1,109 @@
+---
+const links = [
+  { name: "Home", href: "/" },
+  { name: "Projects", href: "/projects" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+];
+
+// Normalize the current path: gets path, removes trailing slash (unless it's just '/')
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+
+// Function to check if a link is active
+const isActive = (href: string) => {
+  // Normalize link href: ensure it has a leading slash and no trailing slash (unless it's just '/')
+  const normalizedHref = href.replace(/\/+$/, '') || '/';
+  
+  // Check if the current normalized path matches the link's normalized path
+  return currentPath === normalizedHref;
+};
+---
+
+<header class="bg-gray-800 border-b border-gray-700">
+  <nav class="container mx-auto px-6 py-4">
+    <div class="flex justify-between items-center text-gray-300">
+      <a href="/" class="text-2xl font-bold text-code-blue hover:text-code-green transition-colors">
+        &lt;BenByteCode /&gt;
+      </a>
+
+      <div class="hidden md:flex space-x-8 text-gray-300">
+        {links.map(link => (
+          <a 
+            href={link.href} 
+            class={`
+              hover:text-code-blue 
+              transition-colors 
+              ${isActive(link.href) 
+                ? 'text-code-blue font-semibold border-b-2 border-code-blue' // Active state styles
+                : '' // Inactive state styles
+              }
+            `}
+          >
+            {link.name}
+          </a>
+        ))}
+      </div>
+
+      <button class="md:hidden text-gray-300 hover:text-code-blue" id="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        {links.map(link => (
+            <a 
+              href={link.href} 
+              class={`
+                block px-3 py-2 rounded-md font-medium transition-colors 
+                ${isActive(link.href) 
+                  ? 'bg-gray-700 text-code-blue' // Active state styles for mobile
+                  : 'text-gray-300 hover:bg-gray-700 hover:text-code-blue' // Inactive state styles for mobile
+                }
+              `}
+            >
+              {link.name}
+            </a>
+          ))}
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Get the button, the menu, and the icons
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  if (button && menu && menuIcon && closeIcon) {
+    button.addEventListener('click', () => {
+      // Toggle the 'hidden' Tailwind class on the menu
+      menu.classList.toggle('hidden');
+      
+      // Toggle the 'hidden' class on the icons for the Hamburger <-> X animation
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+
+      // Update ARIA attribute for accessibility
+      const isExpanded = button.getAttribute('aria-expanded') === 'true' || false;
+      button.setAttribute('aria-expanded', String(!isExpanded));
+    });
+
+    // Optional: Close the menu when a link is clicked
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (!menu.classList.contains('hidden')) {
+          menu.classList.add('hidden');
+          menuIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+          button.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  }
+</script>
