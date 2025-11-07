@@ -4,7 +4,7 @@
     "description": "A SwiftUI golf score tracking app for the Tri-Valley Korean Golf Association. Features real-time scoring and persistent data storage.",
     "technologies": ["SwiftUI", "Firebase", "iOS/iPadOS"],
     "githubUrl": "https://github.com/benbytecode/birdieboard",
-    "liveUrl": "https://apps.apple.com/app/birdieboard"
+    "liveUrl": "https://apps.apple.com/us/app/birdieboard-tvkga"
   },
   {
     "title": "RunReady",
