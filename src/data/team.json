@@ -1,15 +1,15 @@
 [
   {
     "name": "Benjamin Kim",
-    "role": "iOS & visionOS Engineer",
+    "role": "Full Stack & visionOS Engineer",
     "email": "benjamin.kim.dr@icloud.com",
     "phone": "509-251-9716",
     "color": "code-blue"
   },
   {
     "name": "Mia Han",
-    "role": "Full Stack & iOS Engineer",
-    "email": "han.miyoung@gmail.com",
+    "role": "iOS Engineer",
+    "email": "miahan2021@gmail.com",
     "phone": "509-263-0184",
     "color": "code-green"
   }
